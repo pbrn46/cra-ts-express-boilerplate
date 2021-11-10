@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import { Container } from '@material-ui/core'
+import React, { useEffect, useState } from "react"
 import axios from "axios"
 
-export default function Home() {
+export function Home() {
   const [serverMessage, setServerMesage] = useState("")
   const [serverError, setServerError] = useState<string | null>(null)
   useEffect(() => {
@@ -17,8 +16,8 @@ export default function Home() {
     }
     fetch()
   }, [])
-  return <Container>
-    <div>{serverError}</div>
-    <div>{serverMessage}</div>
-  </Container>
+  return <div>
+    <div>Server Error: {serverError || "None"}</div>
+    <div>Server Message: {serverMessage}</div>
+  </div>
 }
